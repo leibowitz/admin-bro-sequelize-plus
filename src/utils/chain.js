@@ -31,4 +31,4 @@ const chainActions = (...actions) => {
   }
 }
 
-module.exports = { after, before, chainActions }
+export { after, before, chainActions }

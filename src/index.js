@@ -1,6 +1,6 @@
 const AdminBro = require('admin-bro')
 
-const Adapter = require('./adapter')
+const { Resource } = require('./adapter')
 
 const { after: manyToManyAfterHook } = require('./actions/many-to-many-hook')
 const { after: selectAfterHook } = require('./actions/select-hook')
@@ -67,8 +67,8 @@ const oneActionHooks = {
   }
 }
 
-module.exports = {
-  Adapter,
+export {
+  Resource,
   manyToManyComponent,
   inlineComponent,
   oneComponent,

@@ -12,4 +12,4 @@ const getAssociation = (context, resource, property) => {
   return associations[0]
 }
 
-module.exports = { getAssociation }
+export { getAssociation }

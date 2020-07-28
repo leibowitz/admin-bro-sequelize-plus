@@ -1,4 +1,4 @@
-const { Database, Resource: SequelizeResource } = require('admin-bro-sequelizejs')
+const { Resource: SequelizeResource } = require('admin-bro-sequelizejs')
 const { BaseRecord } = require('admin-bro')
 const { Op } = require('sequelize')
 const keyBy = require('lodash/keyby');
@@ -92,4 +92,4 @@ class Resource extends SequelizeResource {
   }
 }
 
-module.exports = { Database, Resource }
+export { Resource }

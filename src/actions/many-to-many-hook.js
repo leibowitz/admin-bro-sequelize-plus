@@ -72,4 +72,4 @@ const after = async (response, request, context) => {
   return response
 }
 
-module.exports = { after }
+export { after }

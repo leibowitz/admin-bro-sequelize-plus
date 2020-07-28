@@ -15,4 +15,4 @@ const findReferenceProperty = (properties, originalResourceId) => {
     .find(p => p.type === 'reference' && p.reference === originalResourceId)
 }
 
-module.exports = { isAlias, getResourceId, getSortField, findReferenceProperty }
+export { isAlias, getResourceId, getSortField, findReferenceProperty }
