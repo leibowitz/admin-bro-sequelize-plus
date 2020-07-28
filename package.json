@@ -1,9 +1,10 @@
 {
   "name": "admin-bro-sequelize-plus",
   "version": "0.0.1",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "author": "Gianni Moschini",
   "license": "MIT",
+  "type": "module",
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.10.5",
