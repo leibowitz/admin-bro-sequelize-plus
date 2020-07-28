@@ -5,6 +5,10 @@
   "author": "Gianni Moschini",
   "license": "MIT",
   "type": "module",
+  "files": [
+    "dist/index.js",
+    "package.json"
+  ],
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.10.5",
