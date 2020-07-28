@@ -1,31 +1,31 @@
 const AdminBro = require('admin-bro')
 
-const Adapter = require('./src/adapter')
+const Adapter = require('./adapter')
 
-const { after: manyToManyAfterHook } = require('./src/actions/many-to-many-hook')
-const { after: selectAfterHook } = require('./src/actions/select-hook')
-const { after: inlineAfterHook } = require('./src/actions/inline-hook')
-const { before: oneBeforeHook, after: oneAfterHook } = require('./src/actions/one-hook')
-const { before: chainBefore, after: chainAfter, chainActions } = require('./src/utils/chain')
+const { after: manyToManyAfterHook } = require('./actions/many-to-many-hook')
+const { after: selectAfterHook } = require('./actions/select-hook')
+const { after: inlineAfterHook } = require('./actions/inline-hook')
+const { before: oneBeforeHook, after: oneAfterHook } = require('./actions/one-hook')
+const { before: chainBefore, after: chainAfter, chainActions } = require('./utils/chain')
 
 const manyToManyComponent = {
   type: 'many',
   components: {
-    edit: AdminBro.bundle('./src/components/manytomany.edit.jsx'),
+    edit: AdminBro.bundle('./components/manytomany.edit.jsx'),
   }
 }
 
 const inlineComponent = {
   type: 'inline',
   components: {
-    edit: AdminBro.bundle('./src/components/inline.edit.jsx'),
+    edit: AdminBro.bundle('./components/inline.edit.jsx'),
   }
 }
 
 const oneComponent = {
   type: 'one',
   components: {
-    edit: AdminBro.bundle('./src/components/one.edit.jsx'),
+    edit: AdminBro.bundle('./components/one.edit.jsx'),
   }
 }
 
