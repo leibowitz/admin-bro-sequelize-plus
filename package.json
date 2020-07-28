@@ -6,7 +6,6 @@
   "license": "MIT",
   "type": "module",
   "files": [
-    "dist/index.js"
   ],
   "devDependencies": {
     "@babel/cli": "^7.10.5",
