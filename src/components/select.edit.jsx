@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FormGroup, Label, ApiClient } from 'admin-bro'
-import Select from 'react-select/async'
+import Select from 'react-select/lib/Async'
 
 
 const getResourceId = (property) => {
