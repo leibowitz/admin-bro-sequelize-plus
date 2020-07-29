@@ -5,6 +5,7 @@ const { after: selectAfterHook } = require('./actions/select-hook')
 const { after: inlineAfterHook } = require('./actions/inline-hook')
 const { before: oneBeforeHook, after: oneAfterHook } = require('./actions/one-hook')
 const { before: chainBefore, after: chainAfter, chainActions } = require('./utils/chain')
+const { component } = require('./utils/component')
 
 const manyToManyActionHooks = {
   new: {
@@ -52,5 +53,6 @@ export {
   oneActionHooks,
   chainBefore,
   chainAfter,
-  chainActions
+  chainActions,
+  component
 }
