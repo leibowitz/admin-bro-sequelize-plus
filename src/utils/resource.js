@@ -10,9 +10,4 @@ const getSortField = (property) => {
   return property.options && property.options.custom && property.options.custom.sortBy ? property.options.custom.sortBy : null
 }
 
-const findReferenceProperty = (properties, originalResourceId) => {
-  return properties
-    .find(p => p.type === 'reference' && p.reference === originalResourceId)
-}
-
-export { isAlias, getResourceId, getSortField, findReferenceProperty }
+export { isAlias, getResourceId, getSortField }

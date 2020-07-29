@@ -7,7 +7,11 @@ import { BasePropertyComponent } from 'admin-bro'
 import isEqual from 'lodash/isequal';
 
 import AddNewItemButton from './add-new-item'
-import { findReferenceProperty } from '../utils/resource'
+
+const findReferenceProperty = (properties, originalResourceId) => {
+  return properties
+    .find(p => p.type === 'reference' && p.reference === originalResourceId)
+}
 
 const filterProperties = (properties, originalResourceId) => {
   return properties
