@@ -89,7 +89,11 @@ const InlineEdit = (props) => {
   }
 
   const addNew = (event) => {
-    setRecords(records.concat([{params: {[refProperty.name]: initialRecord.id}, 'errors': {}, 'populated': {}}]))
+    const params = {}
+    if (initialRecord.id) {
+      params[refProperty.name] = initialRecord.id
+    }
+    setRecords(records.concat([{params: params, 'errors': {}, 'populated': {}}]))
     event.preventDefault()
     return false
   }
