@@ -38,11 +38,17 @@ const after = async (response, request, context) => {
         const propName = property.name()
         const items = params[propName] ? params[propName] : []
 
+        const references = toResource.getPropertiesOfType('edit', 'reference')
+        const refProperty = references.find(p => p.property.reference() === context.resource.id())
+
         // Only delete linked records when they were removed from an existing record
         if (context.action.name === 'edit') {
-          const references = toResource.getPropertiesOfType('edit', 'reference')
-          const refProperty = references.find(p => p.property.reference() === context.resource.id())
           await toResource.deleteMissingRecords(refProperty.name(), record.id(), items.map(i => i.id))
+        }
+
+        // Set related field to main record id
+        if (context.action.name === 'new') {
+          items.map(item => item[refProperty.name()] = record.id())
         }
 
         const records = items.map(item => toResource.build(item))
