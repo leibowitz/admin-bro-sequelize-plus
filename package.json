@@ -6,6 +6,7 @@
   "license": "MIT",
   "type": "module",
   "files": [
+    "src/components/*"
   ],
   "devDependencies": {
     "@babel/cli": "^7.10.5",
