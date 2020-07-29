@@ -32,6 +32,6 @@
     "regenerator-runtime": "^0.13.7"
   },
   "scripts": {
-    "build": "babel src --out-dir lib"
+    "build": "webpack"
   }
 }
