@@ -6,11 +6,7 @@ import { useRecord } from 'admin-bro'
 import { BasePropertyComponent } from 'admin-bro'
 import isEqual from 'lodash/isequal';
 
-const filterProperties = (properties, originalResourceId) => {
-  return properties
-    .filter(p => p.type !== 'one')
-    .filter(p => p.type !== 'reference' || p.reference !== originalResourceId)
-}
+import { filterProperties } from './utils'
 
 const RecordEdit = (props) => {
   const { record: initialRecord, resource, parentResourceId, onChange } = props
@@ -33,7 +29,7 @@ const RecordEdit = (props) => {
     <FormGroup>
       <Box flex flexDirection="row" alignItems="top">
         <Box flexGrow={1}>
-          {filterProperties(resource.editProperties, parentResourceId).map(property => (
+          {filterProperties('one', resource.editProperties, parentResourceId).map(property => (
             <BasePropertyComponent
               key={property.name}
               where="edit"

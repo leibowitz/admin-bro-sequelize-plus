@@ -7,17 +7,7 @@ import { BasePropertyComponent } from 'admin-bro'
 import isEqual from 'lodash/isequal';
 
 import AddNewItemButton from './add-new-item'
-
-const findReferenceProperty = (properties, originalResourceId) => {
-  return properties
-    .find(p => p.type === 'reference' && p.reference === originalResourceId)
-}
-
-const filterProperties = (properties, originalResourceId) => {
-  return properties
-    .filter(p => p.type !== 'inline')
-    .filter(p => p.type !== 'reference' || p.reference !== originalResourceId)
-}
+import { findReferenceProperty, filterProperties } from './utils'
 
 const RecordEdit = (props) => {
   const { record: initialRecord, resource, parentResourceId, onChange, onDelete } = props
@@ -41,7 +31,7 @@ const RecordEdit = (props) => {
       <Section mt="xl">
         <Box flex flexDirection="row" alignItems="top">
           <Box flexGrow={1}>
-            {filterProperties(resource.editProperties, parentResourceId).map(property => (
+            {filterProperties('inline', resource.editProperties, parentResourceId).map(property => (
               <BasePropertyComponent
                 key={property.name}
                 where="edit"
