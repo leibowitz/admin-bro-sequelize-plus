@@ -87,6 +87,10 @@ class Resource extends SequelizeResource {
     return this.getPropertiesOfType('edit', 'inline')
   }
 
+  getLinkedProperties() {
+    return this.getPropertiesOfType('edit', 'linked')
+  }
+
   getOneProperties() {
     return this.getPropertiesOfType('edit', 'one')
   }
