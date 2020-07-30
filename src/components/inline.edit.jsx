@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
+import uuid from 'react-uuid'
 
 import { DrawerContent, Box, FormGroup, Section, Button, Icon } from 'admin-bro'
 import { useRecord } from 'admin-bro'
@@ -83,7 +84,8 @@ const InlineEdit = (props) => {
     if (initialRecord.id) {
       params[refProperty.name] = initialRecord.id
     }
-    setRecords(records.concat([{params: params, 'errors': {}, 'populated': {}}]))
+    const newObj = {params: params, 'errors': {}, 'populated': {}, id: uuid()}
+    setRecords(records.concat([newObj]))
     event.preventDefault()
     return false
   }
