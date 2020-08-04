@@ -1,7 +1,7 @@
 const { Resource: SequelizeResource } = require('admin-bro-sequelizejs')
 const { BaseRecord } = require('admin-bro')
 const { Op } = require('sequelize')
-const keyBy = require('lodash/keyby');
+const keyBy = require('lodash/keyBy');
 
 
 class Resource extends SequelizeResource {
