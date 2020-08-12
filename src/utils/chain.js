@@ -19,6 +19,10 @@ const chainActions = (...actions) => {
   const newAfterActions = actions.filter(o => o.new?.after).map(o => o.new.after)
   const editBeforeActions = actions.filter(o => o.edit?.before).map(o => o.edit.before)
   const editAfterActions = actions.filter(o => o.edit?.after).map(o => o.edit.after)
+  const showBeforeActions = actions.filter(o => o.show?.before).map(o => o.show.before)
+  const showAfterActions = actions.filter(o => o.show?.after).map(o => o.show.after)
+  const listBeforeActions = actions.filter(o => o.list?.before).map(o => o.list.before)
+  const listAfterActions = actions.filter(o => o.list?.after).map(o => o.list.after)
   return {
     new: {
       after: after(newAfterActions),
@@ -28,6 +32,14 @@ const chainActions = (...actions) => {
       after: after(editAfterActions),
       before: before(editBeforeActions)
     },
+    show: {
+      after: after(showAfterActions),
+      before: before(showBeforeActions)
+    },
+    list: {
+      after: after(listAfterActions),
+      before: before(listBeforeActions)
+    }
   }
 }
 
