@@ -25,9 +25,9 @@ const chainActions = (...actions) => {
       before: before(newBeforeActions)
     },
     edit: {
-      after: after(newAfterActions),
+      after: after(editAfterActions),
       before: before(editBeforeActions)
-    }
+    },
   }
 }
 
