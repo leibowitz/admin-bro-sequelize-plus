@@ -5,7 +5,7 @@ import uuid from 'react-uuid'
 import { DrawerContent, Box, FormGroup, Section, Button, Icon } from 'admin-bro'
 import { useRecord } from 'admin-bro'
 import { BasePropertyComponent } from 'admin-bro'
-import isEqual from 'lodash/isequal';
+import isEqual from 'lodash/isEqual';
 
 import AddNewItemButton from './add-new-item'
 import { findReferenceProperty, filterProperties } from './utils'

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { DrawerContent, Box, FormGroup } from 'admin-bro'
 import { useRecord } from 'admin-bro'
 import { BasePropertyComponent } from 'admin-bro'
-import isEqual from 'lodash/isequal';
+import isEqual from 'lodash/isEqual';
 
 import { findReferenceProperty, filterProperties } from './utils'
 
