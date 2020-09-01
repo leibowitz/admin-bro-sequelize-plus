@@ -1,10 +1,18 @@
-const component = (type, componentId) => {
+const AdminBro = require('admin-bro')
+
+const component = (type, componentId, actions = {}) => {
   return {
-    type: type,
+    type,
+    actions,
     components: {
       edit: componentId,
     }
   }
 }
 
-export { component }
+const getComponent = (type, actions = {}) => {
+  const componentId = AdminBro.bundle(require.resolve(`admin-bro-sequelize-plus/src/components/${type}.edit.jsx`))
+  return component(type, componentId, actions)
+}
+
+export { component, getComponent }
