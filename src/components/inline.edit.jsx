@@ -7,7 +7,7 @@ import { useRecord } from 'admin-bro'
 import { BasePropertyComponent } from 'admin-bro'
 import isEqual from 'lodash/isEqual';
 
-import AddNewItemButton from './add-new-item'
+import AddNewItemButton from './add-new-item.jsx'
 import { findReferenceProperty, filterProperties } from './utils'
 
 const RecordEdit = (props) => {
