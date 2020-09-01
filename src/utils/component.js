@@ -11,7 +11,7 @@ const component = (type, componentId, actions = {}) => {
 }
 
 const getComponent = (type, actions = {}) => {
-  const componentId = AdminBro.bundle(require(`../components/${type}.edit.jsx`))
+  const componentId = AdminBro.bundle(`../src/components/${type}.edit.jsx`)
   return component(type, componentId, actions)
 }
 
