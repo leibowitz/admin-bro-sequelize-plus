@@ -73,6 +73,7 @@ export {
   chainAfter,
   chainActions,
   component,
+  getComponent,
   manyToManyFeature,
   oneFeature,
   linkedFeature,
