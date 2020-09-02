@@ -1,4 +1,5 @@
 const AdminBro = require('admin-bro')
+const { buildFeature } = require('admin-bro')
 
 const component = (type, componentId) => {
   return {
@@ -14,4 +15,13 @@ const getComponent = (type) => {
   return component(type, componentId)
 }
 
-export { component, getComponent }
+const getFeature = (type, actions = {}) => (property) => {
+  return buildFeature({
+    properties: {
+      [property]: getComponent(type)
+    },
+    actions
+  })
+}
+
+export { component, getComponent, getFeature }
