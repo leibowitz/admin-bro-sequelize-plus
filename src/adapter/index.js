@@ -1,4 +1,4 @@
-const { Resource: SequelizeResource } = require('admin-bro-sequelizejs')
+const { Resource: SequelizeResource } = require('@admin-bro/sequelize')
 const { BaseRecord } = require('admin-bro')
 const { Op } = require('sequelize')
 const keyBy = require('lodash/keyBy');
