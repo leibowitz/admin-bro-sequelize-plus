@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FormGroup, Label, ApiClient } from 'admin-bro'
-import Select from 'react-select/async'
+import AsyncSelect from 'react-select/async'
 
 
 const getResourceId = (property) => {
@@ -41,7 +41,7 @@ const ResourceSelection = (props) => {
   }
 
   return (
-    <Select defaultOptions loadOptions={loadOptions} value={selected} onChange={handleChange} />
+    <AsyncSelect defaultOptions loadOptions={loadOptions} value={selected} onChange={handleChange} />
   )
 }
 
