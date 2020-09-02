@@ -1,18 +1,17 @@
 const AdminBro = require('admin-bro')
 
-const component = (type, componentId, actions = {}) => {
+const component = (type, componentId) => {
   return {
     type,
-    actions,
     components: {
       edit: componentId,
     }
   }
 }
 
-const getComponent = (type, actions = {}) => {
+const getComponent = (type) => {
   const componentId = AdminBro.bundle(`../src/components/${type}.edit.jsx`)
-  return component(type, componentId, actions)
+  return component(type, componentId)
 }
 
 export { component, getComponent }
