@@ -24,13 +24,15 @@ const getComponent = (type) => {
   return component(type, componentId)
 }
 
-const getFeature = (type, actions = {}) => (property) => {
-  return buildFeature({
+const getFeature = (type, actions = {}) => (property) => (options) => {
+  const comp = getComponent(type)
+  const props = {
     properties: {
-      [property]: getComponent(type)
+      [property]: comp
     },
     actions
-  })
+  }
+  return buildFeature(props)
 }
 
 export { component, getComponent, getFeature }
