@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import uuid from 'react-uuid'
 
-import { DrawerContent, Box, FormGroup, Section, Button, Icon } from 'admin-bro'
+import { DrawerContent, Box, FormGroup, Section, Button, Icon } from '@admin-bro/design-system'
 import { useRecord } from 'admin-bro'
 import { BasePropertyComponent } from 'admin-bro'
 import isEqual from 'lodash/isEqual';

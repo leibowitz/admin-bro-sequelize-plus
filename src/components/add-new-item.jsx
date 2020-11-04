@@ -1,5 +1,6 @@
 import React from 'react'
-import { Icon, useTranslation } from 'admin-bro'
+import { useTranslation } from 'admin-bro'
+import { Icon } from '@admin-bro/design-system'
 
 const AddNewItemButton = (props) => {
   const { resource, property } = props

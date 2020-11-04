@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { FormGroup, Label, ApiClient } from 'admin-bro'
+import { ApiClient } from 'admin-bro'
+import { FormGroup, Label } from '@admin-bro/design-system'
 import AsyncSelect from 'react-select/async'
 
 
