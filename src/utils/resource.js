@@ -1,13 +1,21 @@
-const isAlias = (property) => {
-  return property.options && property.options.custom && property.options.custom.resourceId ? true : false
-}
+const isAlias = (property) => (
+  property.options &&
+    property.options.custom &&
+    property.options.custom.resourceId
+);
 
-const getResourceId = (property) => {
-  return isAlias(property) ? property.options.custom.resourceId : property.name()
-}
+const getResourceId = (property) => (
+  isAlias(property)
+    ? property.options.custom.resourceId
+    : property.name()
+);
 
-const getSortField = (property) => {
-  return property.options && property.options.custom && property.options.custom.sortBy ? property.options.custom.sortBy : null
-}
+const getSortField = (property) => (
+  property.options &&
+    property.options.custom &&
+    property.options.custom.sortBy
+    ? property.options.custom.sortBy
+    : null
+);
 
-export { isAlias, getResourceId, getSortField }
+export { isAlias, getResourceId, getSortField };

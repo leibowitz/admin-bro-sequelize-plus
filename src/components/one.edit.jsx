@@ -1,35 +1,36 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState, useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
 
-import { Box, FormGroup, Button, Icon } from '@admin-bro/design-system'
-import { useRecord } from 'admin-bro'
-import { BasePropertyComponent } from 'admin-bro'
+import { Box, FormGroup, Button, Icon } from '@admin-bro/design-system';
+import { useRecord } from 'admin-bro';
+import { BasePropertyComponent } from 'admin-bro';
 import isEqual from 'lodash/isEqual';
 
-import { filterProperties } from './utils'
+import { filterProperties } from './utils';
 
 const RecordEdit = (props) => {
-  const { record: initialRecord, resource, parentResourceId, onChange } = props
-  const initialObject = useRef(initialRecord?.params)
+  const { record: initialRecord, resource, parentResourceId, onChange } = props;
+  const initialObject = useRef(initialRecord?.params);
 
-  const {
-    record,
-    handleChange,
-  } = useRecord(initialRecord, resource.id)
+  const { record, handleChange } = useRecord(initialRecord, resource.id);
 
   useEffect(() => {
     // Only trigger when values changed
     if (isEqual(initialObject.current, record.params)) {
-      return
+      return;
     }
-    onChange(record)
-  }, [record])
+    onChange(record);
+  }, [record]);
 
   return (
     <FormGroup>
       <Box flex flexDirection="row" alignItems="top">
         <Box flexGrow={1}>
-          {filterProperties('one', resource.editProperties, parentResourceId).map(property => (
+          {filterProperties(
+            'one',
+            resource.editProperties,
+            parentResourceId
+          ).map((property) => (
             <BasePropertyComponent
               key={property.name}
               where="edit"
@@ -42,48 +43,66 @@ const RecordEdit = (props) => {
         </Box>
       </Box>
     </FormGroup>
-  )
-}
+  );
+};
 
 const Edit = (props) => {
-  const { record: initialRecord, property: relatedProperty, resource: parentResource, onChange } = props
-  const toResourceId = relatedProperty?.custom?.resourceId || relatedProperty.name
+  const {
+    record: initialRecord,
+    property: relatedProperty,
+    resource: parentResource,
+    onChange
+  } = props;
+  const toResourceId =
+    relatedProperty?.custom?.resourceId || relatedProperty.name;
 
-  const isInitialRender = useRef(true)
-  const resources = useSelector((state) => state.resources)
-  const targetResource = resources.find(r => r.id === toResourceId)
-  const item = initialRecord.populated[relatedProperty.name] || {params: {}, errors: {}}
+  const isInitialRender = useRef(true);
+  const resources = useSelector((state) => state.resources);
+  const targetResource = resources.find((r) => r.id === toResourceId);
+  const item = initialRecord.populated[relatedProperty.name] || {
+    params: {},
+    errors: {}
+  };
 
-  const [record, setRecord] = useState(item)
+  const [record, setRecord] = useState(item);
 
   const handleRecordChange = (record) => {
-    setRecord(record)
-  }
+    setRecord(record);
+  };
 
   useEffect(() => {
     // Skip first render
     if (isInitialRender.current) {
       isInitialRender.current = false;
-      return
+      return;
     }
-    onChange(relatedProperty.name, record?.params)
-  }, [record])
+    onChange(relatedProperty.name, record?.params);
+  }, [record]);
 
   useEffect(() => {
     // Skip first render
     if (isInitialRender.current) {
       isInitialRender.current = false;
-      return
+      return;
     }
 
-    setRecord({...record, errors: initialRecord?.errors[relatedProperty.name] || {}})
-  }, [initialRecord?.errors])
+    setRecord({
+      ...record,
+      errors: initialRecord?.errors[relatedProperty.name] || {}
+    });
+  }, [initialRecord?.errors]);
 
   return (
     <FormGroup>
-      <RecordEdit key={record?.id} record={record} parentResourceId={parentResource.id} resource={targetResource} onChange={handleRecordChange} />
+      <RecordEdit
+        key={record?.id}
+        record={record}
+        parentResourceId={parentResource.id}
+        resource={targetResource}
+        onChange={handleRecordChange}
+      />
     </FormGroup>
-  )
-}
+  );
+};
 
-export default Edit
+export default Edit;

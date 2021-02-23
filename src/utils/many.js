@@ -1,15 +1,18 @@
-const { isAlias, getResourceId } = require('./resource')
+const { isAlias, getResourceId } = require('./resource');
 
 const getAssociation = (context, resource, property) => {
-  const toResourceId = getResourceId(property)
-  const toResource = context._admin.findResource(toResourceId)
-  const resourceId = toResource.id()
+  const toResourceId = getResourceId(property);
+  const toResource = context._admin.findResource(toResourceId);
+  const resourceId = toResource.id();
   if (isAlias(property)) {
-    const associations = resource.associationFor(resourceId)
-    return associations[property.name()] ? associations[property.name()] : associations[resourceId]
+    const associations = resource.associationFor(resourceId);
+    return associations[property.name()]
+      ? associations[property.name()]
+      : associations[resourceId];
   }
-  const associations = resource.getAssociationsByResourceId(resourceId)
-  return associations[0]
-}
+  const associations = resource.getAssociationsByResourceId(resourceId);
+  return associations[0];
+};
 
-export { getAssociation }
+// eslint-disable-next-line import/prefer-default-export
+export { getAssociation };
