@@ -3,9 +3,7 @@ const { unflatten } = require('flat');
 const { getAssociation } = require('../utils/many');
 const { getResourceId } = require('../utils/resource');
 
-const getFromField = (property) => (
-  property?.options?.custom?.fromField
-);
+const getFromField = (property) => property?.options?.custom?.fromField;
 
 const getResource = (_admin, resource, property) => {
   const fromField = getFromField(property);
